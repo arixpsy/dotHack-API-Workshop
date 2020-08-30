@@ -75,18 +75,35 @@
 
 # Calling API
 - Postman/Insomnia
-- Python
+- Python via request Library
+  
+  ```python
+  import requests
+
+  makeGetRequest = requests.get('https://jsonplaceholder.typicode.com/todos/1')
+  # print(makeGetRequest.status_code)
+  # print(makeGetRequest.text)
+
+  loginData = {'username': 'lol', 'password':'231'}
+  makePostRequest = request.post('https://somethingLoginEndPoint.com/auth/local', data = loginData)
+  
+  ```
+
 - Javascript fetch
-- show on webpage
-  - document.getElementById('');
-  - document.querySelector('');
 
+  ```javascript
+  fetch('https://jsonplaceholder.typicode.com/photos')
+    .then(function (response) {  
+      return response.json();
+    })
+    .then(function (data) {  
+      console.log(data)
+    })
 
-querySelector is the newer feature.
-getElementById is better supported than querySelector.
-querySelector is better supported than getElementsByClassName.
-querySelector lets you find elements with rules that can't be expressed with getElementById and getElementsByClassName
+  ```
+  - fetch method returns a promise containing a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response">Response Object</a>
+  - The Response Object is just an HTTP response not the data we actually need.
+  - To extract the data/json we need in the body content we use the .json() method of the Response Object which returns another promise
 
+- Display fetched data on webpage
 
-
-What to do next
